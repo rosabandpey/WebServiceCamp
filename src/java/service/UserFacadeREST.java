@@ -46,8 +46,8 @@ public class UserFacadeREST extends AbstractFacade<User> {
     
     @POST
     @Path("RegisterUser")
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public String registerUser(@QueryParam("name") String name,@QueryParam("family") String family,@QueryParam("phone")  String phone,@QueryParam("phone") String email,@QueryParam("password") String password,@QueryParam("sex") String sex,@QueryParam("birthDate") String birthDate,User entity) {
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_PLAIN})
+    public String registerUser(@QueryParam("name") String name,@QueryParam("family") String family,@QueryParam("phone")  String phone,@QueryParam("email") String email,@QueryParam("password") String password,@QueryParam("sex") String sex,@QueryParam("birthDate") String birthDate,User entity) {
       
         entity.setName(name);
         entity.setFamily(family);
