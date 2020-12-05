@@ -37,27 +37,22 @@ public class UserFacadeREST extends AbstractFacade<User> {
     }
 
     @POST
+    @Path("create")
     @Override
-    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_PLAIN})
     public void create(User entity) {
         super.create(entity);
     }
 
     
     @POST
-    @Path("RegisterUser")
+    @Path("save")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON,MediaType.TEXT_PLAIN})
-    public String registerUser(@QueryParam("name") String name,@QueryParam("family") String family,@QueryParam("phone")  String phone,@QueryParam("email") String email,@QueryParam("password") String password,@QueryParam("sex") String sex,@QueryParam("birthDate") String birthDate,User entity) {
-      
+    public void reg(@QueryParam("name")String name,@QueryParam("family")String family,User entity) {
         entity.setName(name);
         entity.setFamily(family);
-        entity.setPhone(phone);
-        entity.setEmail(email);
-        entity.setPassword(password);
-        entity.setSex(sex);
-        entity.setBirthDate(birthDate);
         em.persist(entity);
-        return "Success";
+        
     }
     
     
